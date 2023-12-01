@@ -49,8 +49,10 @@ namespace Bufecik.Controllers
         // GET: Zamowienies/Create
         public IActionResult Create()
         {
-            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "ID");
-            ViewData["StatusID"] = new SelectList(_context.Status, "ID", "ID");
+            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "Imie");
+            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "Nazwisko");
+            ViewData["StatusID"] = new SelectList(_context.Status, "ID", "Nazwa");
+
             return View();
         }
 
@@ -67,8 +69,8 @@ namespace Bufecik.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "ID", zamowienie.KlientID);
-            ViewData["StatusID"] = new SelectList(_context.Status, "ID", "ID", zamowienie.StatusID);
+            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "UserID", zamowienie.KlientID);
+            ViewData["StatusID"] = new SelectList(_context.Status, "ID", "Nazwa", zamowienie.StatusID);
             return View(zamowienie);
         }
 
@@ -85,8 +87,8 @@ namespace Bufecik.Controllers
             {
                 return NotFound();
             }
-            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "ID", zamowienie.KlientID);
-            ViewData["StatusID"] = new SelectList(_context.Status, "ID", "ID", zamowienie.StatusID);
+            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "UserID", zamowienie.KlientID);
+            ViewData["StatusID"] = new SelectList(_context.Status, "ID", "Nazwa", zamowienie.StatusID);
             return View(zamowienie);
         }
 
@@ -122,8 +124,8 @@ namespace Bufecik.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "ID", zamowienie.KlientID);
-            ViewData["StatusID"] = new SelectList(_context.Status, "ID", "ID", zamowienie.StatusID);
+            ViewData["KlientID"] = new SelectList(_context.Klient, "ID", "UserID", zamowienie.KlientID);
+            ViewData["StatusID"] = new SelectList(_context.Status, "ID", "Nazwa", zamowienie.StatusID);
             return View(zamowienie);
         }
 

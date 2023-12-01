@@ -48,7 +48,7 @@ namespace Bufecik.Controllers
         // GET: Kanapkas/Create
         public IActionResult Create()
         {
-            ViewData["KategoriaID"] = new SelectList(_context.Set<Kategoria>(), "ID", "ID");
+            ViewData["KategoriaID"] = new SelectList(_context.Set<Kategoria>(), "ID", "Nazwa");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Bufecik.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KategoriaID"] = new SelectList(_context.Set<Kategoria>(), "ID", "ID", kanapka.KategoriaID);
+            ViewData["KategoriaID"] = new SelectList(_context.Set<Kategoria>(), "ID", "Nazwa", kanapka.KategoriaID);
             return View(kanapka);
         }
 
@@ -82,7 +82,7 @@ namespace Bufecik.Controllers
             {
                 return NotFound();
             }
-            ViewData["KategoriaID"] = new SelectList(_context.Set<Kategoria>(), "ID", "ID", kanapka.KategoriaID);
+            ViewData["KategoriaID"] = new SelectList(_context.Set<Kategoria>(), "ID", "Nazwa", kanapka.KategoriaID);
             return View(kanapka);
         }
 
@@ -118,7 +118,7 @@ namespace Bufecik.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KategoriaID"] = new SelectList(_context.Set<Kategoria>(), "ID", "ID", kanapka.KategoriaID);
+            ViewData["KategoriaID"] = new SelectList(_context.Set<Kategoria>(), "ID", "Nazwa", kanapka.KategoriaID);
             return View(kanapka);
         }
 

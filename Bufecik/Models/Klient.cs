@@ -10,7 +10,6 @@ namespace Bufecik.Models
         public string Telefon { get; set; }
         public string UserID { get; set; }
         public IdentityUser? User { get; set; }
-
         public ICollection<Zamowienie> Zamowienies { get;} = new List<Zamowienie>();
     }
 }

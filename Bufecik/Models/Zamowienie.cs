@@ -8,7 +8,6 @@
         public Klient? Klient { get; set; } = null!;
         public int StatusID { get; set; }
         public Status? Status { get; set; } = null!;
-
         public ICollection<Szczegoly> Szczegolys { get; } = new List<Szczegoly>();
 
     }
